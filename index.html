@@ -12,31 +12,18 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">Sorolla</h1>
-      <h2 class="project-tagline"></h2>
+      <h2 class="project-tagline">Image scaling, tinting &amp; coloring utilities optimized for Android resources</h2>
       <a href="https://github.com/bq/sorolla" class="btn">View on GitHub</a>
       <a href="https://github.com/bq/sorolla/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/bq/sorolla/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
-      <hr>
-
-<p>Sorolla: Image scaling, tinting &amp; coloring utilities optimized for Android resources</p>
-
-<hr>
-
-<p><strong>Sorolla</strong> is a simple Python package that provides an easy way to scale, tint and color-fill any kind of image.</p>
+      <p><strong>Sorolla</strong> is a simple Python package that provides an easy way to scale, tint and color-fill any kind of image.</p>
 
 <p>It is especially designed for Android resources, giving support to Android standard and Nine-patch resources while keeping their properties. It also supports vector resources, such as .pdf and .svg. </p>
 
 <p>The library also detects if the resource contains the nine-patch resource notation (.9.) in its file name so it can work with it while keeping the nine-patch's properties.</p>
-
-<p>.. contents::
-    :local:
-    :depth: 1
-    :backlinks: none</p>
-
-<h1></h1>
 
 <h1>
 <a id="requirements-and-installation" class="anchor" href="#requirements-and-installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements and installation</h1>
@@ -46,101 +33,90 @@
 <ul>
 <li>Python 2.7.x</li>
 <li>
-<code>ImageMagick &lt;http://www.imagemagick.org/&gt;</code>_ and <code>GhostScript &lt;http://www.ghostscript.com/&gt;</code>_ installed in the system and available from PATH. Install them from a package management tool or build them from source.</li>
+<a href="http://www.imagemagick.org/">ImageMagick</a> and <a href="http://www.ghostscript.com/">GhostScript</a> installed in the system and available from PATH. Install them from a package management tool or build them from source.</li>
 </ul>
 
 <p>The package has been tested in <em>Ubuntu 14.04, Windows 8.1 &amp; Mac OS X 10.10</em></p>
 
 <p>If you want to install the package in your current Python instance run:</p>
 
-<p>.. code-block:: bash</p>
-
-<pre><code>$ python setup.py install
-</code></pre>
+<div class="highlight highlight-bash"><pre>$ python setup.py install</pre></div>
 
 <p>or:</p>
 
-<p>.. code-block:: bash</p>
-
-<pre><code>$ python setup.py develop
-</code></pre>
+<div class="highlight highlight-bash"><pre>$ python setup.py develop</pre></div>
 
 <p>if you want to install the library for debugging or testing purposes.</p>
 
 <p>You can also import the library from the <em>sorolla</em> folder and use it directly in your custom scripts.</p>
-
-<h1></h1>
 
 <h1>
 <a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use</h1>
 
 <p>Just import the <em>Sorolla</em> class from the <em>sorolla</em> package in your Python script.</p>
 
-<p>.. code-block:: python</p>
-
-<pre><code>from sorolla import Sorolla
-</code></pre>
+<div class="highlight highlight-python"><pre><span class="pl-k">from</span> sorolla <span class="pl-k">import</span> Sorolla</pre></div>
 
 <p>The <em>Sorolla</em> class exposes the following <em>static methods</em>:</p>
 
-<pre><code>**Sorolla.color_resource(source_file, dest_file, fill_color)**
+<blockquote>
+<p><strong>Sorolla.color_resource(source_file, dest_file, fill_color)</strong></p>
 
-Colors a raster resource; detects if it's a nine-patch via filename in order to color it properly
+<p>Colors a raster resource; detects if it's a nine-patch via filename in order to color it properly</p>
 
-Arguments:
-    *source_file*   Source file to color. Path can be relative or absolute
+<p>Arguments:</p>
 
-    *dest_file* Destination file where the colored file will be saved. Path can be relative or absolute
+<pre><code>   source_file    Source file to color. Path can be relative or absolute
 
-    *fill_color*    Color to fill the resource. Must be a RRGGBB string.
+   dest_file      Destination file where the colored file will be saved. Path can be relative or absolute
 
-Returns:
-    Whether the action could be run or not
-
-
-**Sorolla.scale_resource(source_file, dest_file, scale)**
-
-Scales a resource; detects if it's a nine-patch via filename in order to scale it properly
-
-Arguments:
-    *source_file*   Source file to convert. Path can be relative or absolute
-
-    *dest_file* Destination file where the converted file will be saved. Path can be relative or absolute
-
-    *scale* Scale value as a float. If it's greater than zero, the function upscales the image; if less than zero, it downscales the image
-
-Returns:
-    Whether the action could be run or not
-
-
-**Sorolla.tint_resource(source_file, dest_file, tint_color)**
-
-Tints a gray-scaled raster resource; detects if it's a nine-patch via filename in order to tint it properly
-
-Arguments:
-    *source_file*   Source file to tint. Path can be relative or absolute
-
-    *dest_file* Destination file where the tinted file will be saved. Path can be relative or absolute
-
-    *fill_color*    Color to tint the resource. Must be a RRGGBB string.
-
-Returns:
-    Whether the action could be run or not
+   fill_color     Color to fill the resource. Must be a RRGGBB string.
 </code></pre>
 
-<h1></h1>
+<p>Returns:
+       Whether the action could be run or not</p>
+
+<p><strong>Sorolla.scale_resource(source_file, dest_file, scale)</strong></p>
+
+<p>Scales a resource; detects if it's a nine-patch via filename in order to scale it properly</p>
+
+<p>Arguments:</p>
+
+<pre><code>   source_file    Source file to convert. Path can be relative or absolute
+
+   dest_file      Destination file where the converted file will be saved. Path can be relative or absolute
+
+   scale          Scale value as a float. If it's greater than zero, the function upscales the image; if less than zero, it downscales the image
+</code></pre>
+
+<p>Returns:
+       Whether the action could be run or not</p>
+
+<p><strong>Sorolla.tint_resource(source_file, dest_file, tint_color)</strong></p>
+
+<p>Tints a gray-scaled raster resource; detects if it's a nine-patch via filename in order to tint it properly</p>
+
+<p>Arguments:</p>
+
+<pre><code>   source_file    Source file to tint. Path can be relative or absolute
+
+   dest_file      Destination file where the tinted file will be saved. Path can be relative or absolute
+
+   fill_color     Color to tint the resource. Must be a RRGGBB string.
+</code></pre>
+
+<p>Returns:
+       Whether the action could be run or not</p>
+</blockquote>
 
 <h1>
 <a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h1>
 
-<p>You can find an usage example in <code>example.py &lt;example.py&gt;</code>_ script.</p>
+<p>You can find an usage example in <a href="example.py">example.py</a> script.</p>
 
 <p>The script acccepts the following syntax:</p>
 
-<p>.. code-block:: bash</p>
-
-<pre><code>$ python example.py source_res_dir dest_res_dir rgb_hex_color_without_#
-</code></pre>
+<div class="highlight highlight-bash"><pre>$ python example.py source_res_dir dest_res_dir rgb_hex_color_without_#</pre></div>
 
 <p>This script takes a source folder containing:</p>
 
@@ -151,49 +127,32 @@ Returns:
 
 <p>and saves the results in another folder ready to import them into an Android project.</p>
 
-<p><em>Note: the script skips xxxhdpi resource generation, see</em> <code>this excerpt from Android documentation &lt;http://developer.android.com/guide/practices/screens_support.html#xxxhdpi-note&gt;</code>_ <em>for more details.</em></p>
+<p><em>Note: the script skips xxxhdpi resource generation, see <a href="http://developer.android.com/guide/practices/screens_support.html#xxxhdpi-note">this excerpt from Android documentation</a> for more details.</em></p>
 
 <p>Suppose that we have the following folders in "source_res_dir":</p>
 
-<p>.. image:: art/screen_1.png
-    :alt: source_res_dir contents
-    :align: center</p>
+<p><img src="art/screen_1.png" alt="source_res_dir contents"></p>
 
-<p>.. image:: art/screen_2.png
-    :alt: source_res_dir/drawable contents
-    :align: center</p>
+<p><img src="art/screen_2.png" alt="source_res_dir/drawable contents"></p>
 
-<p>.. image:: art/screen_3.png
-    :alt: source_res_dir/drawable-xxhdpi contents
-    :align: center</p>
+<p><img src="art/screen_3.png" alt="source_res_dir/drawable-xxhdpi contents"></p>
 
 <p>If the following command is issued:</p>
 
-<p>.. code-block:: bash</p>
-
-<pre><code>$ python example.py source_res_dir dest_res_dir FF0000
-</code></pre>
+<div class="highlight highlight-python"><pre>$ python example.py source_res_dir dest_res_dir FF0000</pre></div>
 
 <p>We'll get the following result:</p>
 
-<p>.. image:: art/screen_4.png
-    :alt: dest_res_dir contents
-    :align: center</p>
+<p><img src="art/screen_4.png" alt="dest_res_dir contents"></p>
 
-<p>.. image:: art/screen_5.png
-    :alt: dest_res_dir/drawable-xxhdpi contents
-    :align: center</p>
+<p><img src="art/screen_5.png" alt="dest_res_dir/drawable-xxhdpi contents"></p>
 
 <p>(Contents in the rest of folders have been skipped)</p>
-
-<h1></h1>
 
 <h1>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h1>
 
 <p>This project is licensed under the Apache Software License, Version 2.0.</p>
-
-<p>.. code::</p>
 
 <pre><code>Copyright (c) 2015 bq
 
