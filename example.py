@@ -23,8 +23,6 @@ The source resource directory must contain the following folders:
 The preferred way to work with scalable files is to export them as PDF or SVG
 files. The PDF or SVG file must be exported from a canvas with 72 dpi & for
 mdpi screen density.
-
-Tested on Python 2.7 & Ubuntu 14.04
 """
 
 import os
